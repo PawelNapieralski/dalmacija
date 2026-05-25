@@ -1,0 +1,417 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dalmacija-klima · One-Pager</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap');
+
+  :root {
+    --green-dark: #1a6a45;
+    --green-accent: #226f4b;
+    --green-light: #e8f4ee;
+    --gold: #c8a74b;
+    --text-dark: #1a1a1a;
+    --text-mid: #4a4a4a;
+    --text-light: #888888;
+    --border: #afcbbe;
+    --white: #ffffff;
+    --bg: #faf9f5;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: 'Source Sans 3', sans-serif; background: var(--bg); color: var(--text-dark); }
+
+  .page {
+    width: 210mm;
+    min-height: 297mm;
+    margin: 0 auto;
+    background: var(--white);
+    display: flex;
+    flex-direction: column;
+  }
+
+  .lang-toggle {
+    display: flex;
+    position: fixed;
+    top: 16px; right: 16px;
+    z-index: 100;
+    border: 1px solid var(--border);
+    border-radius: 4px;
+    overflow: hidden;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.12);
+  }
+  .lang-toggle button {
+    padding: 6px 14px;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 12px; font-weight: 600; letter-spacing: 0.08em;
+    cursor: pointer; border: none;
+    background: var(--white); color: var(--text-light);
+    transition: background 0.2s, color 0.2s;
+  }
+  .lang-toggle button.active { background: var(--green-dark); color: var(--white); }
+
+  .top-bar {
+    background: var(--green-dark);
+    color: rgba(255,255,255,0.55);
+    font-size: 9px; font-weight: 600; letter-spacing: 0.22em; text-transform: uppercase;
+    padding: 10px 24px;
+    display: flex; justify-content: space-between; align-items: center;
+  }
+.hero {
+    background: var(--green-dark);
+    padding: 14px 24px 12px;
+    color: var(--white);
+    border-bottom: 3px solid var(--gold);
+  }
+.hero h1 {
+    font-family: 'Source Serif 4', serif;
+    font-size: 24px; font-weight: 600; line-height: 1.2;
+    margin-bottom: 8px;
+  }
+  .hero p { font-size: 11px; line-height: 1.5; color: rgba(255,255,255,0.78); margin-bottom: 5px; }
+  .hero .context-line { font-size: 10px; color: var(--gold); font-style: italic; margin-bottom: 0; }
+
+  .body { flex: 1; padding: 10px 24px 8px; }
+
+  .intro {
+    font-size: 11px; line-height: 1.55; color: var(--text-mid);
+    margin-bottom: 9px;
+    border-left: 3px solid var(--gold); padding-left: 12px;
+  }
+  .intro strong { color: var(--text-dark); }
+
+  .kpi-strip {
+    display: grid; grid-template-columns: 3fr 3fr 3fr 2fr;
+    gap: 8px; margin-bottom: 9px;
+  }
+  .kpi {
+    background: var(--green-light); border: 1px solid var(--border);
+    border-radius: 4px; padding: 10px 8px; text-align: center;
+  }
+  .kpi-estimate {
+    background: var(--white); border: 1px dashed var(--border);
+    border-radius: 4px; padding: 10px 6px; text-align: center;
+  }
+  .kpi-estimate .value { color: var(--text-mid); }
+  .kpi-estimate .label { font-style: italic; }
+  .kpi-estimate .sublabel { font-style: italic; }
+  .kpi .value {
+    font-family: 'Source Serif 4', serif;
+    font-size: 20px; font-weight: 600; color: var(--green-dark);
+    display: block; line-height: 1.1; margin-bottom: 3px;
+  }
+  .kpi .label { font-size: 9.5px; line-height: 1.35; color: var(--text-mid); }
+  .kpi .sublabel { font-size: 8px; color: var(--text-light); font-style: italic; margin-top: 2px; display: block; }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
+
+  .section-label {
+    font-size: 8.5px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--green-accent);
+    border-bottom: 1px solid var(--border); padding-bottom: 4px; margin-bottom: 8px;
+  }
+
+  ul.arrow-list { list-style: none; padding: 0; }
+  ul.arrow-list li {
+    font-size: 10.5px; line-height: 1.5; color: var(--text-mid);
+    padding: 3.5px 0 3.5px 14px; position: relative;
+    border-bottom: 1px solid var(--green-light);
+  }
+  ul.arrow-list li:last-child { border-bottom: none; }
+  ul.arrow-list li::before { content: '→'; position: absolute; left: 0; color: var(--green-accent); font-size: 9px; }
+
+  .ref-box {
+    background: var(--green-light); border: 1px solid var(--border);
+    border-radius: 4px; padding: 9px 12px; margin-bottom: 9px;
+  }
+  .ref-box .ref-title { font-size: 10px; font-weight: 700; color: var(--green-dark); margin-bottom: 4px; }
+  .ref-box p { font-size: 9.5px; line-height: 1.5; color: var(--text-mid); }
+
+  .bkg-box { background: var(--white); border: 1px solid var(--green-accent); border-radius: 4px; padding: 9px 12px; }
+  .bkg-box .bkg-title { font-size: 10px; font-weight: 700; color: var(--green-accent); margin-bottom: 4px; }
+  .bkg-box p { font-size: 9.5px; line-height: 1.5; color: var(--text-mid); }
+
+  .why-box { background: var(--green-dark); color: var(--white); border-radius: 4px; padding: 10px 14px; margin-bottom: 0; }
+  .why-box .section-label { color: var(--gold); border-color: rgba(255,255,255,0.2); margin-bottom: 6px; display: block; }
+  .why-box p { font-size: 10.5px; line-height: 1.55; color: rgba(255,255,255,0.82); }
+
+  .disclaimer-inline {
+    font-size: 8px; color: var(--text-light); font-style: italic;
+    line-height: 1.5; margin-bottom: 6px; padding: 0 2px;
+  }
+
+  .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-bottom: 6px; }
+  .two-col > div:first-child { padding-right: 12px; border-right: 1px solid var(--border); }
+  .two-col > div:last-child { padding-left: 12px; }
+
+  .kpi-strip {
+    display: grid; grid-template-columns: 3fr 3fr 3fr 2fr;
+    gap: 8px; margin-bottom: 18px;
+  }
+
+  .intro {
+    font-size: 11px; line-height: 1.6; color: var(--text-mid);
+    margin-bottom: 14px;
+    border-left: 3px solid var(--gold); padding-left: 12px;
+    padding-top: 10px; padding-bottom: 10px;
+  }
+
+  .cta-bar {
+    background: var(--green-light); border: 1px solid var(--border);
+    border-radius: 4px; padding: 10px 16px;
+    display: flex; align-items: center; justify-content: space-between;
+    margin-bottom: 0;
+  }
+  .cta-bar .cta-text h3 { font-size: 11px; font-weight: 700; color: var(--green-dark); margin-bottom: 3px; }
+  .cta-bar .cta-text p { font-size: 9.5px; color: var(--text-mid); line-height: 1.4; }
+
+  .footer {
+    border-top: 1px solid var(--border);
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 12px 40px 12px;
+    gap: 12px;
+  }
+  .footer-contact { font-size: 9.5px; line-height: 1.6; color: var(--text-mid); text-align: left; }
+  .footer-contact strong { font-size: 10.5px; color: var(--text-dark); display: block; }
+  .footer-contact a { color: var(--green-accent); text-decoration: none; }
+  .footer-brand { text-align: right; font-size: 9.5px; color: var(--text-light); }
+  .footer-brand strong { font-size: 13px; color: var(--green-dark); display: block; font-family: 'Source Serif 4', serif; font-weight: 600; }
+  .cta-btn {
+    background: var(--green-dark); color: var(--white);
+    font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+    padding: 9px 16px; border-radius: 3px; white-space: nowrap; border: none; cursor: pointer;
+  }
+
+  .bottom-block { padding: 0 24px 4px; margin-top: auto; }
+  .body { padding: 14px 24px 0; }
+  .content-wrapper { flex: 1; display: flex; flex-direction: column; }
+
+  @media print { .lang-toggle { display: none; } body { background: white; } }
+</style>
+</head>
+<body>
+
+<div class="lang-toggle">
+  <button id="btn-pl" onclick="setLang('pl')">PL</button>
+  <button id="btn-en" onclick="setLang('en')">EN</button>
+</div>
+
+<!-- ═══════════════════════════════ PL PAGE ═══════════════════════════════ -->
+<div id="page-pl" class="page">
+  <div class="top-bar">
+    <span>Efektywność energetyczna · Dekarbonizacja · Przemysł spożywczy</span>
+    <span>dalmacija-klima.com</span>
+  </div>
+  <div class="hero">
+    <h1>Zakład produkuje ciepło, za które już zapłacił.<br>I wyrzuca je do atmosfery.</h1>
+    <p>Rozwiązanie: odzysk ciepła odpadowego z chłodzenia i eliminacja gazu ziemnego z ogrzewania procesowego — potwierdzone w zakładzie rozlewniczym wiodącego producenta napojów w Europie Środkowej.</p>
+    <p class="context-line">W dobie rosnącej presji regulacyjnej na dekarbonizację i niestabilności cen gazu — to nie tylko optymalizacja kosztów. To strategiczna transformacja energetyczna.</p>
+  </div>
+  <div class="content-wrapper">
+  <div class="body">
+    <p class="intro">Każdy zakład rozlewniczy jednocześnie <strong>chłodzi</strong> (linie produkcyjne, dmuchanie butelek PET, klimatyzacja, układy chłodnicze) i <strong>ogrzewa</strong> (mycie CIP, procesy technologiczne, ciepła woda użytkowa, ogrzewanie centralne). Dziś procesy te działają oddzielnie: układ chłodniczy odprowadza ciepło do atmosfery przez skraplacz, podczas gdy kocioł gazowy zużywa gaz ziemny do wytworzenia ciepła od nowa. <strong>Przemysłowe pompy ciepła Dalmacija-klima łączą oba procesy</strong> — ciepło odpadowe odzyskiwane z układów chłodniczych, sprężarek i dmuchania butelek PET staje się źródłem ciepła procesowego. Zapotrzebowanie na gaz ziemny może zostać znacząco zredukowane lub całkowicie wyeliminowane, w zależności od konfiguracji zakładu. Dzięki optymalizacji całego układu możliwe jest również ograniczenie zużycia energii elektrycznej w chłodzeniu.
+    </p>
+    <div class="kpi-strip">
+      <div class="kpi">
+        <span class="value">~1,6 mln zł</span>
+        <div class="label">roczna oszczędność na gazie z jednego zakładu</div>
+        <span class="sublabel">≈ 6 400 000 kWh gazu · szacunek przy ~250 zł/MWh dla przemysłu</span>
+      </div>
+      <div class="kpi">
+        <span class="value">100%</span>
+        <div class="label">W projekcie referencyjnym wyeliminowano 100% gazu ziemnego z ogrzewania procesowego i centralnego.</div>
+      </div>
+      <div class="kpi">
+        <span class="value">do 80%</span>
+        <div class="label">wartości projektu może pokryć<br>dofinansowanie BGK</div>
+        <span class="sublabel">przy spełnieniu warunków kwalifikacji</span>
+      </div>
+      <div class="kpi kpi-estimate">
+        <span class="value">~5–6 lat</span>
+        <div class="label">szacowany okres zwrotu</div>
+        <span class="sublabel">wraz z systemem SCADA do pomiaru i weryfikacji oszczędności</span>
+      </div>
+    </div>
+    <div class="two-col">
+      <div>
+        <div class="section-label">Dlaczego to działa w rozlewniach</div>
+        <ul class="arrow-list" style="margin-bottom:14px;">
+          <li>Jednoczesne i ciągłe zapotrzebowanie na ciepło i chłód — idealne warunki dla odzysku</li>
+          <li>Ciepło procesowe dostarczane do 85–90°C pokrywa 100% potrzeb grzewczych</li>
+          <li>W projekcie referencyjnym system pokrywał pełne zapotrzebowanie na ciepło procesowe</li>
+          <li>Istniejące systemy chłodzenia często marnują energię — nowy system optymalizuje cały układ</li>
+          <li>Sprężarki i dmuchanie butelek PET wyrzucają ciepło odpadowe — nowy system je przechwytuje</li>
+          <li>Więcej godzin pracy rocznie = bardziej atrakcyjny zwrot z inwestycji</li>
+        </ul>
+        <div class="section-label">Co obejmuje projekt</div>
+        <ul class="arrow-list">
+          <li>Projekt techniczny pod konkretny zakład</li>
+          <li>Dostawa sprzętu produkowanego na zamówienie</li>
+          <li>Montaż i uruchomienie</li>
+          <li>Nowy system SCADA (monitoring i sterowanie)</li>
+          <li>Plan pomiarów i weryfikacji oszczędności (M&amp;V)</li>
+          <li>Wieloletnie wsparcie posprzedażowe</li>
+        </ul>
+      </div>
+      <div>
+        <div class="section-label">Referencja</div>
+        <div class="ref-box">
+          <div class="ref-title">Wiodący producent napojów — zakład rozlewniczy, Europa Środkowa</div>
+          <p>Dalmacija-klima usunęła 100% gazu ziemnego z ogrzewania procesowego i centralnego. Zużycie energii elektrycznej nie wzrosło — wręcz zmalało. Rozwiązanie techniczne zaprojektowane pod ten konkretny zakład, pracujące przez cały rok.</p>
+        </div>
+        <div class="section-label">Finansowanie</div>
+        <div class="bkg-box" style="margin-bottom:0;">
+          <div class="bkg-title">Kredyt ekologiczny BGK — możliwość uzyskania dotacji pokrywającej do 80% wartości projektu</div>
+          <p>Projekty osiągające ponad 30% oszczędności energii mogą kwalifikować się do premii umorzeniowej BGK — de facto bezzwrotnego grantu. Zakłady napojowe często osiągają 50–100% redukcji zużycia gazu w ogrzewaniu procesowym, co stwarza potencjał pełnej kwalifikacji programu. Wymagany jest audyt energetyczny oraz indywidualna ocena projektu.</p>
+        </div>
+      </div>
+    </div>
+    <div class="disclaimer-inline">
+      Dane finansowe stanowią szacunek oparty na rynkowych cenach gazu dla przemysłu (~250 zł/MWh) i wynikach referencyjnego projektu zrealizowanego dla wiodącej grupy napojowej w Europie Środkowej. Dokładne liczby oszczędności wymagają analizy technicznej konkretnego zakładu.
+    </div>
+  </div>
+  <div class="bottom-block">
+    <div class="why-box" style="margin-bottom:8px;">
+      <div class="section-label">Dlaczego Dalmacija-klima</div>
+      <p>Dalmacija-klima specjalizuje się w przemysłowych systemach odzysku ciepła i wysokotemperaturowych pompach ciepła dla zakładów pracujących całorocznie. Każdy system projektowany jest indywidualnie pod konkretny proces technologiczny i istniejącą infrastrukturę zakładu.</p>
+    </div>
+    <div class="cta-bar">
+      <div class="cta-text">
+        <h3>Kolejny krok: NDA + spotkanie wstępne</h3>
+        <p>Porozmawiajmy — żeby wspólnie ocenić potencjał i przygotować się do płatnego studium wykonalności z dokładną wyceną oszczędności dla konkretnego zakładu.</p>
+      </div>
+      <button class="cta-btn">Umów rozmowę</button>
+    </div>
+  </div>
+  </div><!-- /content-wrapper -->
+  <div class="footer">
+    <div class="footer-contact">
+      <strong>Paweł Napieralski</strong>
+      <a href="mailto:pn1077@gmail.com">pn1077@gmail.com</a><br>
+      +48 501 599 403
+    </div>
+    <div class="footer-brand">
+      <strong>Dalmacija-klima</strong>
+      Split, Croatia · dalmacija-klima.com
+    </div>
+  </div>
+</div>
+
+<!-- ═══════════════════════════════ EN PAGE ═══════════════════════════════ -->
+<div id="page-en" class="page" style="display:none;">
+  <div class="top-bar">
+    <span>Energy Efficiency · Decarbonisation · Food &amp; Beverage Industry</span>
+    <span>dalmacija-klima.com</span>
+  </div>
+  <div class="hero">
+    <h1>Your plant is producing heat it already paid for.<br>And releasing it into the air.</h1>
+    <p>The solution: waste heat recovery from cooling and proven full elimination of natural gas from process and central heating — demonstrated at a major beverage group's bottling plant in Central Europe.</p>
+    <p class="context-line">In an era of rising decarbonisation pressure and volatile gas prices — this is not just cost optimisation. It is strategic energy transformation.</p>
+  </div>
+  <div class="content-wrapper">
+  <div class="body">
+    <p class="intro">
+      Every bottling plant simultaneously <strong>cools</strong> (production lines, PET bottle blowing, air conditioning, refrigeration systems) and <strong>heats</strong> (CIP cleaning, process heating, hot water systems, central heating). Today these processes operate separately: the refrigeration system rejects heat to the atmosphere through its condenser, while gas boilers burn natural gas to generate heat from scratch. <strong>Dalmacija-klima's industrial heat pumps connect both processes</strong> — waste heat recovered from refrigeration systems, compressors and PET bottle blowing becomes a source of process heat. Natural gas demand can be significantly reduced or fully eliminated, depending on plant configuration. Optimisation of the overall system can also reduce electricity consumption in cooling.
+    </p>
+    <div class="kpi-strip">
+      <div class="kpi">
+        <span class="value">6,400,000 kWh</span>
+        <div class="label">of natural gas replaced per year, per plant</div>
+        <span class="sublabel">≈ PLN 1.6M in gas savings · reference: major beverage group, Central Europe</span>
+      </div>
+      <div class="kpi">
+        <span class="value">100%</span>
+        <div class="label">100% natural gas elimination from process heating — demonstrated in reference project.</div>
+      </div>
+      <div class="kpi">
+        <span class="value">up to 80%</span>
+        <div class="label">of project cost potentially covered<br>by BGK grant (Poland)</div>
+        <span class="sublabel">subject to eligibility criteria</span>
+      </div>
+      <div class="kpi kpi-estimate">
+        <span class="value">~5–6 yrs</span>
+        <div class="label">estimated payback period</div>
+        <span class="sublabel">including SCADA energy measurement &amp; verification system</span>
+      </div>
+    </div>
+    <div class="two-col">
+      <div>
+        <div class="section-label">Why this works in bottling plants</div>
+        <ul class="arrow-list" style="margin-bottom:14px;">
+          <li>Simultaneous, continuous demand for heat and cold — ideal conditions for recovery</li>
+          <li>Process heat delivered up to 85–90°C covers 100% of heating needs</li>
+          <li>In the reference project, the system met the full process heat demand</li>
+          <li>Existing cooling systems often waste electricity — the new system optimises the entire loop</li>
+          <li>Compressors and PET bottle blowing release waste heat — the new system captures and utilises it</li>
+          <li>More operating hours per year = more attractive return on investment</li>
+        </ul>
+        <div class="section-label">Project scope</div>
+        <ul class="arrow-list">
+          <li>Technical design tailored to the specific plant</li>
+          <li>Custom-manufactured equipment</li>
+          <li>Installation and commissioning</li>
+          <li>New SCADA monitoring and control system</li>
+          <li>Measurement &amp; Verification plan (M&amp;V)</li>
+          <li>Long-term after-sales support</li>
+        </ul>
+      </div>
+      <div>
+        <div class="section-label">Reference project</div>
+        <div class="ref-box">
+          <div class="ref-title">Major Beverage Group — Bottling Plant, Central Europe</div>
+          <p>Dalmacija-klima removed 100% of natural gas from process heating and central heating. Electrical energy consumption did not increase — it decreased. Technical solution designed for this specific plant, operating throughout the year.</p>
+        </div>
+        <div class="section-label">Funding — Poland</div>
+        <div class="bkg-box" style="margin-bottom:0;">
+          <div class="bkg-title">BGK Ecological Loan — potential grant support covering up to 80% of project cost</div>
+          <p>Projects achieving more than 30% energy savings may qualify for the BGK redemption premium — effectively a non-repayable grant. Beverage plants often achieve 50–100% reduction in natural gas consumption for process heating, creating strong eligibility potential under the programme. An energy audit and individual project assessment are required.</p>
+        </div>
+      </div>
+    </div>
+    <div class="disclaimer-inline">
+      Financial figures are estimates based on a reference project for a major beverage group in Central Europe (approx. PLN 250/MWh industrial gas price). Precise savings for any given plant require a dedicated technical feasibility study.
+    </div>
+  </div>
+  <div class="bottom-block">
+    <div class="why-box" style="margin-bottom:8px;">
+      <div class="section-label">Why Dalmacija-klima</div>
+      <p>Dalmacija-klima specialises in industrial heat recovery systems and high-temperature heat pumps for year-round industrial operations. Each system is custom-engineered for the specific process requirements and existing infrastructure of the plant.</p>
+    </div>
+    <div class="cta-bar">
+      <div class="cta-text">
+        <h3>Next step: NDA + introductory meeting</h3>
+        <p>Let's talk — to jointly assess the potential and lay the groundwork for a paid feasibility study with precise savings estimates for a specific plant.</p>
+      </div>
+      <button class="cta-btn">Schedule a call</button>
+    </div>
+  </div>
+  </div><!-- /content-wrapper -->
+  <div class="footer">
+    <div class="footer-contact">
+      <strong>Paweł Napieralski</strong>
+      <a href="mailto:pn1077@gmail.com">pn1077@gmail.com</a><br>
+      +48 501 599 403
+    </div>
+    <div class="footer-brand">
+      <strong>Dalmacija-klima</strong>
+      Split, Croatia · dalmacija-klima.com
+    </div>
+  </div>
+</div>
+
+<script>
+function setLang(lang) {
+  document.getElementById('page-pl').style.display = lang === 'pl' ? 'flex' : 'none';
+  document.getElementById('page-en').style.display = lang === 'en' ? 'flex' : 'none';
+  document.getElementById('btn-pl').classList.toggle('active', lang === 'pl');
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+}
+// Default: show PL
+document.getElementById('btn-pl').classList.add('active');
+</script>
+</body>
+</html>

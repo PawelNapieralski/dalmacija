@@ -6,7 +6,7 @@
 <title>Dalmacija-klima · One-Pager</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=Source+Sans+3:wght@300;400;600;700&family=Source+Serif+4:ital,wght@0,400;0,600;1,400&display=swap');
-
+ 
   :root {
     --green-dark: #1a6a45;
     --green-accent: #226f4b;
@@ -19,10 +19,10 @@
     --white: #ffffff;
     --bg: #faf9f5;
   }
-
+ 
   * { margin: 0; padding: 0; box-sizing: border-box; }
   body { font-family: 'Source Sans 3', sans-serif; background: var(--bg); color: var(--text-dark); }
-
+ 
   .page {
     width: 210mm;
     min-height: 297mm;
@@ -31,7 +31,7 @@
     display: flex;
     flex-direction: column;
   }
-
+ 
   .lang-toggle {
     display: flex;
     position: fixed;
@@ -51,7 +51,7 @@
     transition: background 0.2s, color 0.2s;
   }
   .lang-toggle button.active { background: var(--green-dark); color: var(--white); }
-
+ 
   .top-bar {
     background: var(--green-dark);
     color: rgba(255,255,255,0.55);
@@ -72,16 +72,16 @@
   }
   .hero p { font-size: 11px; line-height: 1.5; color: rgba(255,255,255,0.78); margin-bottom: 5px; }
   .hero .context-line { font-size: 10px; color: var(--gold); font-style: italic; margin-bottom: 0; }
-
+ 
   .body { flex: 1; padding: 10px 24px 8px; }
-
+ 
   .intro {
     font-size: 11px; line-height: 1.55; color: var(--text-mid);
     margin-bottom: 9px;
     border-left: 3px solid var(--gold); padding-left: 12px;
   }
   .intro strong { color: var(--text-dark); }
-
+ 
   .kpi-strip {
     display: grid; grid-template-columns: 3fr 3fr 3fr 2fr;
     gap: 8px; margin-bottom: 9px;
@@ -104,15 +104,15 @@
   }
   .kpi .label { font-size: 9.5px; line-height: 1.35; color: var(--text-mid); }
   .kpi .sublabel { font-size: 8px; color: var(--text-light); font-style: italic; margin-top: 2px; display: block; }
-
+ 
   .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin-bottom: 12px; }
-
+ 
   .section-label {
     font-size: 8.5px; font-weight: 700; letter-spacing: 0.2em; text-transform: uppercase;
     color: var(--green-accent);
     border-bottom: 1px solid var(--border); padding-bottom: 4px; margin-bottom: 8px;
   }
-
+ 
   ul.arrow-list { list-style: none; padding: 0; }
   ul.arrow-list li {
     font-size: 10.5px; line-height: 1.5; color: var(--text-mid);
@@ -121,43 +121,43 @@
   }
   ul.arrow-list li:last-child { border-bottom: none; }
   ul.arrow-list li::before { content: '→'; position: absolute; left: 0; color: var(--green-accent); font-size: 9px; }
-
+ 
   .ref-box {
     background: var(--green-light); border: 1px solid var(--border);
     border-radius: 4px; padding: 9px 12px; margin-bottom: 9px;
   }
   .ref-box .ref-title { font-size: 10px; font-weight: 700; color: var(--green-dark); margin-bottom: 4px; }
   .ref-box p { font-size: 9.5px; line-height: 1.5; color: var(--text-mid); }
-
+ 
   .bkg-box { background: var(--white); border: 1px solid var(--green-accent); border-radius: 4px; padding: 9px 12px; }
   .bkg-box .bkg-title { font-size: 10px; font-weight: 700; color: var(--green-accent); margin-bottom: 4px; }
   .bkg-box p { font-size: 9.5px; line-height: 1.5; color: var(--text-mid); }
-
+ 
   .why-box { background: var(--green-dark); color: var(--white); border-radius: 4px; padding: 10px 14px; margin-bottom: 0; }
   .why-box .section-label { color: var(--gold); border-color: rgba(255,255,255,0.2); margin-bottom: 6px; display: block; }
   .why-box p { font-size: 10.5px; line-height: 1.55; color: rgba(255,255,255,0.82); }
-
+ 
   .disclaimer-inline {
     font-size: 8px; color: var(--text-light); font-style: italic;
     line-height: 1.5; margin-bottom: 6px; padding: 0 2px;
   }
-
+ 
   .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 0; margin-bottom: 6px; }
   .two-col > div:first-child { padding-right: 12px; border-right: 1px solid var(--border); }
   .two-col > div:last-child { padding-left: 12px; }
-
+ 
   .kpi-strip {
     display: grid; grid-template-columns: 3fr 3fr 3fr 2fr;
     gap: 8px; margin-bottom: 18px;
   }
-
+ 
   .intro {
     font-size: 11px; line-height: 1.6; color: var(--text-mid);
     margin-bottom: 14px;
     border-left: 3px solid var(--gold); padding-left: 12px;
     padding-top: 10px; padding-bottom: 10px;
   }
-
+ 
   .cta-bar {
     background: var(--green-light); border: 1px solid var(--border);
     border-radius: 4px; padding: 10px 16px;
@@ -166,7 +166,7 @@
   }
   .cta-bar .cta-text h3 { font-size: 11px; font-weight: 700; color: var(--green-dark); margin-bottom: 3px; }
   .cta-bar .cta-text p { font-size: 9.5px; color: var(--text-mid); line-height: 1.4; }
-
+ 
   .footer {
     border-top: 1px solid var(--border);
     display: grid;
@@ -184,22 +184,23 @@
     background: var(--green-dark); color: var(--white);
     font-size: 9px; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
     padding: 9px 16px; border-radius: 3px; white-space: nowrap; border: none; cursor: pointer;
+    text-decoration: none; display: inline-block;
   }
-
+ 
   .bottom-block { padding: 0 24px 4px; margin-top: auto; }
   .body { padding: 14px 24px 0; }
   .content-wrapper { flex: 1; display: flex; flex-direction: column; }
-
+ 
   @media print { .lang-toggle { display: none; } body { background: white; } }
 </style>
 </head>
 <body>
-
+ 
 <div class="lang-toggle">
   <button id="btn-pl" onclick="setLang('pl')">PL</button>
   <button id="btn-en" onclick="setLang('en')">EN</button>
 </div>
-
+ 
 <!-- ═══════════════════════════════ PL PAGE ═══════════════════════════════ -->
 <div id="page-pl" class="page">
   <div class="top-bar">
@@ -284,7 +285,7 @@
         <h3>Kolejny krok: NDA + spotkanie wstępne</h3>
         <p>Porozmawiajmy — żeby wspólnie ocenić potencjał i przygotować się do płatnego studium wykonalności z dokładną wyceną oszczędności dla konkretnego zakładu.</p>
       </div>
-      <button class="cta-btn">Umów rozmowę</button>
+      <a href="mailto:pn1077@gmail.com" class="cta-btn">Umów rozmowę</a>
     </div>
   </div>
   </div><!-- /content-wrapper -->
@@ -300,7 +301,7 @@
     </div>
   </div>
 </div>
-
+ 
 <!-- ═══════════════════════════════ EN PAGE ═══════════════════════════════ -->
 <div id="page-en" class="page" style="display:none;">
   <div class="top-bar">
@@ -386,7 +387,7 @@
         <h3>Next step: NDA + introductory meeting</h3>
         <p>Let's talk — to jointly assess the potential and lay the groundwork for a paid feasibility study with precise savings estimates for a specific plant.</p>
       </div>
-      <button class="cta-btn">Schedule a call</button>
+      <a href="mailto:pn1077@gmail.com" class="cta-btn">Schedule a call</a>
     </div>
   </div>
   </div><!-- /content-wrapper -->
@@ -402,7 +403,7 @@
     </div>
   </div>
 </div>
-
+ 
 <script>
 function setLang(lang) {
   document.getElementById('page-pl').style.display = lang === 'pl' ? 'flex' : 'none';
